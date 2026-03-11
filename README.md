@@ -6,8 +6,8 @@ Each example is a standalone project you can clone, configure, and run to see ho
 
 ## Examples
 
-| Example | Description | Stack |
-|---------|-------------|-------|
+| Example                       | Description                                                                            | Stack                               |
+| ----------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------- |
 | [00_chat_app](./00_chat_app/) | Full-featured chat application with streaming, conversation history, and generative UI | Next.js 16, React 19, Vercel AI SDK |
 
 ## Prerequisites
@@ -26,7 +26,3 @@ Each example is a standalone project you can clone, configure, and run to see ho
 
 - [Dimedove Documentation](https://docs.dimedove.com)
 - [Dimedove Dashboard](https://dashboard.dimedove.com)
-
-## License
-
-MIT

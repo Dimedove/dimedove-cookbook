@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "title": "Application de chat | Dimedove Cookbook",
+    "description": "Un exemple complet d'application de chat construit avec l'API Dimedove Apps.",
+    "chat_title": "Chat | Dimedove Cookbook",
+    "chat_description": "Discutez avec votre assistant IA propulsé par Dimedove."
+  },
+  "chat": {
+    "welcome_message": "Comment puis-je vous aider aujourd'hui ?",
+    "placeholder": "Écrivez un message...",
+    "no_conversations": "Aucune conversation pour le moment",
+    "untitled": "Sans titre",
+    "ai_assistant": "Assistant IA"
+  }
+}

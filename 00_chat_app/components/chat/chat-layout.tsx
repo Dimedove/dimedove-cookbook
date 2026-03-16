@@ -18,7 +18,7 @@ import type {
 } from "@/types/dimedove";
 import { generateId } from "ai";
 import { RingLoader } from "@/components/common/ring-loader";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const PENDING_MESSAGE_KEY = "pendingMessage";
 
@@ -84,6 +84,7 @@ export function ChatLayout({
 }: Props) {
   const router = useRouter();
   const t = useTranslations();
+  const locale = useLocale();
 
   // ── User identification ───────────────────────────────────────────────────
   // A random user ID is generated once and persisted in localStorage.
@@ -276,7 +277,7 @@ export function ChatLayout({
     ? conversations.find((c) => c.id === activeId)
     : null;
   const activeTitle = activeConversation
-    ? getConversationTitle(activeConversation)
+    ? getConversationTitle(activeConversation, locale)
     : null;
 
   return (

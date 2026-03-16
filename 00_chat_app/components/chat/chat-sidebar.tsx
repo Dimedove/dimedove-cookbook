@@ -11,7 +11,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Conversation } from "@/types/dimedove";
 import { ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 interface Props {
   conversations: Conversation[];
   activeId: string | null;
@@ -21,12 +21,14 @@ interface Props {
   loading?: boolean;
 }
 
-export function getConversationTitle(c: Conversation): string | null {
+export function getConversationTitle(
+  c: Conversation,
+  locale: string,
+): string | null {
   if (c.title) return c.title;
   const gen = c.generated_title;
   if (gen) {
-    if (gen["en-ca"]) return gen["en-ca"];
-    if (gen["en"]) return gen["en"];
+    if (gen[locale]) return gen[locale];
     const keys = Object.keys(gen);
     if (keys.length > 0 && gen[keys[0]]) return gen[keys[0]];
   }
@@ -42,6 +44,7 @@ export function ChatSidebar({
   loading,
 }: Props) {
   const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <Sidebar>
@@ -56,7 +59,7 @@ export function ChatSidebar({
                   className="data-[active=true]:bg-[#ececec]"
                 >
                   <span className="truncate text-sm min-w-0">
-                    {getConversationTitle(c) || t("chat.untitled")}
+                    {getConversationTitle(c, locale) || t("chat.untitled")}
                   </span>
                 </SidebarMenuButton>
               </SidebarMenuItem>

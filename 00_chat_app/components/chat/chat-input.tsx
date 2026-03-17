@@ -78,6 +78,7 @@ export function ChatInput({
                 size="icon"
                 variant="default"
                 className="size-9 rounded-full"
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={onStop}
               >
                 <Square className="size-4" fill="currentColor" />
@@ -89,6 +90,7 @@ export function ChatInput({
                 variant="default"
                 className="size-9 rounded-full"
                 disabled={!value.trim() || isOverLimit}
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={onSubmit}
               >
                 <ArrowUp className="size-4.5" />

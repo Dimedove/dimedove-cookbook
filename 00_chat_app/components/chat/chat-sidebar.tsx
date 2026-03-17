@@ -3,12 +3,10 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Conversation } from "@/types/dimedove";
 import { ReactNode } from "react";
 import { useTranslations, useLocale } from "next-intl";
@@ -49,28 +47,26 @@ export function ChatSidebar({
   return (
     <Sidebar>
       <SidebarContent>
-        <ScrollArea className="flex-1">
-          <SidebarMenu className="p-2">
-            {conversations.map((c) => (
-              <SidebarMenuItem key={c.id}>
-                <SidebarMenuButton
-                  isActive={c.id === activeId}
-                  onClick={() => onSelect(c.id)}
-                  className="data-[active=true]:bg-[#ececec]"
-                >
-                  <span className="truncate text-sm min-w-0">
-                    {getConversationTitle(c, locale) || t("chat.untitled")}
-                  </span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-            {!loading && conversations.length === 0 && (
-              <div className="text-xs text-muted-foreground text-center py-8">
-                {t("chat.no_conversations")}
-              </div>
-            )}
-          </SidebarMenu>
-        </ScrollArea>
+        <SidebarMenu className="p-2">
+          {conversations.map((c) => (
+            <SidebarMenuItem key={c.id}>
+              <SidebarMenuButton
+                isActive={c.id === activeId}
+                onClick={() => onSelect(c.id)}
+                className="data-[active=true]:bg-[#ececec]"
+              >
+                <span className="truncate text-sm min-w-0">
+                  {getConversationTitle(c, locale) || t("chat.untitled")}
+                </span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+{!loading && conversations.length === 0 && (
+            <div className="text-xs text-muted-foreground text-center pt-4 pb-8">
+              {t("chat.no_conversations")}
+            </div>
+          )}
+        </SidebarMenu>
       </SidebarContent>
     </Sidebar>
   );
